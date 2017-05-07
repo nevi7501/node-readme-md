@@ -1,0 +1,32 @@
+{
+  "name": "readme-md",
+  "version": "0.0.0",
+  "description": "A README.md generator.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbenner-radham/node-readme-md.git"
+  },
+  "keywords": [
+    "readme",
+    "md",
+    "markdown",
+    "docs"
+  ],
+  "author": "James Benner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbenner-radham/node-readme-md/issues"
+  },
+  "homepage": "https://github.com/jbenner-radham/node-readme-md#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.3.0"
+  },
+  "dependencies": {
+    "lodash.get": "^4.4.2"
+  }
+}

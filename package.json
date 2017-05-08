@@ -1,6 +1,6 @@
 {
   "name": "readme-md",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.1",
   "description": "A README.md generator.",
   "main": "lib/index.js",
   "scripts": {

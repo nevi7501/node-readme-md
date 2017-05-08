@@ -21,6 +21,10 @@ describe('readme-md', function () {
             ====================
             _To be documented._
 
+            Install
+            -------
+            _To be documented._
+
             Usage
             -----
             _To be documented._
@@ -44,6 +48,12 @@ describe('readme-md', function () {
             awesome-package
             ===============
             _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            $ npm install --save awesome-package
+            \`\`\`
 
             Usage
             -----

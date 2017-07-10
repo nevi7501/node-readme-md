@@ -4,7 +4,7 @@
   "description": "A README.md generator.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,7 @@
   },
   "homepage": "https://github.com/jbenner-radham/node-readme-md#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.3.0"
+    "jasmine": "^2.6.0"
   },
   "dependencies": {
     "common-tags": "^1.4.0",

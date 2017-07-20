@@ -43,7 +43,7 @@ describe('readme-md', function () {
         expect(readme()).toEqual(fixture);
     });
 
-    it('generates a titled README with placeholders if passed an object with only a "name" property', function () {
+    it('generates a titled README with placeholders if passed an object with only a `pkg.name` property', function () {
         const parameters = {pkg: {name: 'awesome-package'}};
 
         const fixture = stripIndents`
@@ -60,6 +60,39 @@ describe('readme-md', function () {
             Usage
             -----
             _To be documented._
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
+    it('generates a titled README with a usage section if passed `pkg.name` and `usage` parameters', function () {
+        const parameters = {
+            pkg: {name: 'awesome-package'},
+            usage: `require('awesome-package')('Go go go!');`
+        };
+
+        const fixture = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            $ npm install --save awesome-package
+            \`\`\`
+
+            Usage
+            -----
+            require('awesome-package')('Go go go!');
 
             Testing
             -------

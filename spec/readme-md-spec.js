@@ -2,7 +2,7 @@
 
 const any = jasmine.any;
 const readme = require('../');
-const stripIndents = require('common-tags').stripIndents;
+const {stripIndents} = require('common-tags');
 
 describe('readme-md', function () {
     beforeEach(function () {

@@ -15,7 +15,39 @@ $ npm install --save readme-md
 
 Usage
 -----
-_To be documented._
+````js
+const readme = require('readme-md');
+
+const pkg = {name: 'my-awesome-package'};
+const usage = `\`\`\`js
+    require('my-awesome-package')({awesome: 'parameters'});
+    \`\`\``;
+
+readme({pkg, usage});
+// > my-awesome-package
+// > ==================
+// > _To be documented._
+// >
+// > Install
+// > -------
+// > ```sh
+// > $ npm install --save my-awesome-package
+// > ```
+// >
+// > Usage
+// > -----
+// > ```js
+// > require('my-awesome-package')({awesome: 'parameters'});
+// > ```
+// >
+// > Testing
+// > -------
+// > _To be documented._
+// >
+// > License
+// > -------
+// > _To be documented._
+````
 
 Testing
 -------

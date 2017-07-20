@@ -19,9 +19,11 @@ Usage
 const readme = require('readme-md');
 
 const pkg = {name: 'my-awesome-package'};
-const usage = `\`\`\`js
+const usage = `
+    \`\`\`js
     require('my-awesome-package')({awesome: 'parameters'});
-    \`\`\``;
+    \`\`\`
+`.trim();
 
 readme({pkg, usage});
 // > my-awesome-package

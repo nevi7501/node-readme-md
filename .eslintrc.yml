@@ -5,4 +5,4 @@ env:
   jasmine: true
   node:    true
 rules:
-  no-console: off
+  no-console: error

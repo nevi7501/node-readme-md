@@ -29,13 +29,12 @@
   },
   "homepage": "https://github.com/jbenner-radham/node-readme-md#readme",
   "devDependencies": {
+    "common-tags": "^1.4.0",
     "eslint": "^4.3.0",
     "jasmine": "^2.6.0",
-    "strip-indent": "^2.0.0",
     "trevor": "^2.3.0"
   },
   "dependencies": {
-    "common-tags": "^1.4.0",
     "lodash.escape": "^4.0.1",
     "lodash.get": "^4.4.2"
   }

@@ -27,10 +27,6 @@ describe('readme-md', function () {
             -------
             _To be documented._
 
-            Usage
-            -----
-            _To be documented._
-
             Testing
             -------
             _To be documented._
@@ -57,10 +53,6 @@ describe('readme-md', function () {
             $ npm install --save awesome-package
             \`\`\`
 
-            Usage
-            -----
-            _To be documented._
-
             Testing
             -------
             _To be documented._
@@ -73,14 +65,20 @@ describe('readme-md', function () {
         expect(readme(parameters)).toEqual(fixture);
     });
 
-    it('generates a titled README with a usage section if passed `pkg.name` and `usage` parameters', function () {
+    it('generates a titled README with a "Usage" section if passed `pkg.name` and an appropriate `additionalSections` argument', function () {
         const parameters = {
             pkg: {name: 'awesome-package'},
-            usage: stripIndents`
-                \`\`\`js
-                require('awesome-package')('Go go go!');
-                \`\`\`
-            `
+            additionalSections: [
+                {
+                    position: 'after:Install',
+                    title: 'Usage',
+                    body: stripIndents`
+                        \`\`\`js
+                        require('awesome-package')('Go go go!');
+                        \`\`\`
+                    `
+                }
+            ]
         };
 
         const fixture = stripIndents`
@@ -117,7 +115,7 @@ describe('readme-md', function () {
             additionalSections: [
                 {
                     position: -1,
-                    header: 'See Also',
+                    title: 'See Also',
                     body: '- [Example](http://www.example.com/)'
                 }
             ]
@@ -130,10 +128,6 @@ describe('readme-md', function () {
 
             Install
             -------
-            _To be documented._
-
-            Usage
-            -----
             _To be documented._
 
             Testing
@@ -157,7 +151,7 @@ describe('readme-md', function () {
             additionalSections: [
                 {
                     position: 'after:Testing',
-                    header: 'See Also',
+                    title: 'See Also',
                     body: '- [Example](http://www.example.com/)'
                 }
             ]
@@ -170,10 +164,6 @@ describe('readme-md', function () {
 
             Install
             -------
-            _To be documented._
-
-            Usage
-            -----
             _To be documented._
 
             Testing
@@ -197,7 +187,7 @@ describe('readme-md', function () {
             additionalSections: [
                 {
                     position: 'before:License',
-                    header: 'See Also',
+                    title: 'See Also',
                     body: '- [Example](http://www.example.com/)'
                 }
             ]
@@ -210,10 +200,6 @@ describe('readme-md', function () {
 
             Install
             -------
-            _To be documented._
-
-            Usage
-            -----
             _To be documented._
 
             Testing

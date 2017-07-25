@@ -5,7 +5,7 @@ readme-md
 [![GitHub License][LICENSE BADGE]][LICENSE PAGE]
 [![Build Status][BUILD BADGE]][BUILD PAGE]
 
-A `README.md` generator.
+A `README.md` generator library.
 
 Install
 -------
@@ -19,13 +19,15 @@ Usage
 const readme = require('readme-md');
 
 const pkg = {name: 'my-awesome-package'};
-const usage = `
-    \`\`\`js
-    require('my-awesome-package')({awesome: 'parameters'});
-    \`\`\`
-`.trim();
+const additionalSections = [
+    {
+        position: 'after:Install',
+        title: 'Usage',
+        body: "```js\nrequire('my-awesome-package')({awesome: 'parameters'});\n```"
+    }
+];
 
-readme({pkg, usage});
+readme({pkg, additionalSections});
 // > my-awesome-package
 // > ==================
 // > _To be documented._

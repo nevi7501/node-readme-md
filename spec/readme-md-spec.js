@@ -116,7 +116,7 @@ describe('readme-md', function () {
         const parameters = {
             additionalSections: [
                 {
-                    index: -1,
+                    position: -1,
                     header: 'See Also',
                     body: '- [Example](http://www.example.com/)'
                 }

@@ -112,11 +112,91 @@ describe('readme-md', function () {
         expect(readme(parameters)).toEqual(fixture);
     });
 
-    it('adds an "See Also" section when passed an appropriate `additionalSections` argument', function () {
+    it('adds an "See Also" section when passed an appropriate `additionalSections` argument using a numeric position', function () {
         const parameters = {
             additionalSections: [
                 {
                     position: -1,
+                    header: 'See Also',
+                    body: '- [Example](http://www.example.com/)'
+                }
+            ]
+        };
+
+        const fixture = stripIndents`
+            &lt;package-name&gt;
+            ====================
+            _To be documented._
+
+            Install
+            -------
+            _To be documented._
+
+            Usage
+            -----
+            _To be documented._
+
+            Testing
+            -------
+            _To be documented._
+
+            See Also
+            --------
+            - [Example](http://www.example.com/)
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
+    it('adds an "See Also" section when passed an appropriate `additionalSections` argument using an "after" position directive', function () {
+        const parameters = {
+            additionalSections: [
+                {
+                    position: 'after:Testing',
+                    header: 'See Also',
+                    body: '- [Example](http://www.example.com/)'
+                }
+            ]
+        };
+
+        const fixture = stripIndents`
+            &lt;package-name&gt;
+            ====================
+            _To be documented._
+
+            Install
+            -------
+            _To be documented._
+
+            Usage
+            -----
+            _To be documented._
+
+            Testing
+            -------
+            _To be documented._
+
+            See Also
+            --------
+            - [Example](http://www.example.com/)
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
+    it('adds an "See Also" section when passed an appropriate `additionalSections` argument using a "before" position directive', function () {
+        const parameters = {
+            additionalSections: [
+                {
+                    position: 'before:License',
                     header: 'See Also',
                     body: '- [Example](http://www.example.com/)'
                 }

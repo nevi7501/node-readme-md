@@ -76,7 +76,11 @@ describe('readme-md', function () {
     it('generates a titled README with a usage section if passed `pkg.name` and `usage` parameters', function () {
         const parameters = {
             pkg: {name: 'awesome-package'},
-            usage: `require('awesome-package')('Go go go!');`
+            usage: stripIndents`
+                \`\`\`js
+                require('awesome-package')('Go go go!');
+                \`\`\`
+            `
         };
 
         const fixture = stripIndents`
@@ -92,11 +96,53 @@ describe('readme-md', function () {
 
             Usage
             -----
+            \`\`\`js
             require('awesome-package')('Go go go!');
+            \`\`\`
 
             Testing
             -------
             _To be documented._
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
+    it('adds an "See Also" section when passed an appropriate `additionalSections` argument', function () {
+        const parameters = {
+            additionalSections: [
+                {
+                    index: -1,
+                    header: 'See Also',
+                    body: '- [Example](http://www.example.com/)'
+                }
+            ]
+        };
+
+        const fixture = stripIndents`
+            &lt;package-name&gt;
+            ====================
+            _To be documented._
+
+            Install
+            -------
+            _To be documented._
+
+            Usage
+            -----
+            _To be documented._
+
+            Testing
+            -------
+            _To be documented._
+
+            See Also
+            --------
+            - [Example](http://www.example.com/)
 
             License
             -------

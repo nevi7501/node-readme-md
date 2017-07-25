@@ -31,6 +31,7 @@
   "devDependencies": {
     "eslint": "^4.3.0",
     "jasmine": "^2.6.0",
+    "strip-indent": "^2.0.0",
     "trevor": "^2.3.0"
   },
   "dependencies": {

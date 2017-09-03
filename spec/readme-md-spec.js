@@ -218,6 +218,30 @@ describe('readme-md', function () {
         expect(readme(parameters)).toEqual(fixture);
     });
 
+    it('documents an "UNLICENSED" software license differently than a SPDX license', function () {
+        const parameters = {pkg: {license: 'UNLICENSED'}};
+
+        const fixture = stripIndents`
+            &lt;package-name&gt;
+            ====================
+            _To be documented._
+
+            Install
+            -------
+            _To be documented._
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            This is unlicensed proprietary software.
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
     it('returns a string', function () {
         expect(readme(this.parameters)).toEqual(any(String));
     });

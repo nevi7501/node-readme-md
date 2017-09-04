@@ -16,6 +16,8 @@ $ npm install --save readme-md
 Usage
 -----
 ````js
+'use strict';
+
 const readme = require('readme-md');
 
 const pkg = {name: 'my-awesome-package'};

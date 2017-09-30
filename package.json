@@ -7,9 +7,9 @@
   },
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint {lib,spec}",
     "prepublishOnly": "trevor",
-    "test": "npm run lint && jasmine"
+    "pretest": "eslint {lib,spec}",
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",

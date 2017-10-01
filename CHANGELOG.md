@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Unreleased]
 ------------
+### Added
+- The `parameters.license.linkTarget` argument has been added to allow linkifying the license text.
+
+### Changed
+- Switched the lockfile format from `npm` to `yarn`.
+
 ### Removed
 - No longer exports a `Markdown` module.
 

@@ -218,6 +218,61 @@ describe('readme-md', function () {
         expect(readme(parameters)).toEqual(fixture);
     });
 
+    it('documents an "MIT" software license', function () {
+        const parameters = {pkg: {license: 'MIT'}};
+
+        const fixture = stripIndents`
+            &lt;package-name&gt;
+            ====================
+            _To be documented._
+
+            Install
+            -------
+            _To be documented._
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            The MIT License (Expat). See the license file for details.
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
+    it('documents and linkifies an "MIT" software license', function () {
+        const parameters = {
+            license: {
+                linkTarget: 'LICENSE'
+            },
+            pkg: {
+                license: 'MIT'
+            }
+        };
+
+        const fixture = stripIndents`
+            &lt;package-name&gt;
+            ====================
+            _To be documented._
+
+            Install
+            -------
+            _To be documented._
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            The MIT License (Expat). See the [license file](LICENSE) for details.
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
     it('documents an "UNLICENSED" software license differently than a SPDX license', function () {
         const parameters = {pkg: {license: 'UNLICENSED'}};
 

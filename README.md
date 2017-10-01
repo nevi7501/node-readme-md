@@ -10,7 +10,7 @@ A `README.md` generator library.
 Install
 -------
 ```sh
-$ npm install --save readme-md
+$ yarn add readme-md # Or alternatively: `npm install --save readme-md`
 ```
 
 Usage
@@ -58,7 +58,7 @@ readme({pkg, additionalSections});
 Testing
 -------
 ```sh
-$ npm test
+$ yarn test # Or alternatively: `npm test`
 ```
 
 License

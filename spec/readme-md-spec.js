@@ -65,7 +65,112 @@ describe('readme-md', function () {
         expect(readme(parameters)).toEqual(fixture);
     });
 
-    it('generates a titled README with a "Usage" section if passed `pkg.name` and an appropriate `additionalSections` argument', function () {
+    it(`generates a titled README with variant placeholders if passed an object
+        with \`pkg.name\` and \`config['prefer-yarn']\` properties`,
+    function () {
+        const parameters = {
+            config: {'prefer-yarn': true},
+            pkg: {name: 'awesome-package'}
+        };
+
+        const fixture = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            $ yarn add awesome-package # Or alternatively: \`npm install --save awesome-package\`
+            \`\`\`
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
+    it(`generates a titled README with placeholders and a testing command if
+        passed an object with \`pkg.name\` and \`pkg.scripts.test\` properties`,
+    function () {
+        const parameters = {
+            pkg: {
+                name: 'awesome-package',
+                scripts: {test: 'jasmine'}
+            }
+        };
+
+        const fixture = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            $ npm install --save awesome-package
+            \`\`\`
+
+            Testing
+            -------
+            \`\`\`sh
+            $ npm test
+            \`\`\`
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
+    it(`generates a titled README with variant placeholders and testing command
+        if passed an object with \`pkg.name\`, \`pkg.scripts.test\`, and
+        \`config['prefer-yarn']\` properties`,
+    function () {
+        const parameters = {
+            config: {'prefer-yarn': true},
+            pkg: {
+                name: 'awesome-package',
+                scripts: {test: 'jasmine'}
+            }
+        };
+
+        const fixture = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            $ yarn add awesome-package # Or alternatively: \`npm install --save awesome-package\`
+            \`\`\`
+
+            Testing
+            -------
+            \`\`\`sh
+            $ yarn test # Or alternatively: \`npm test\`
+            \`\`\`
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
+    it(`generates a titled README with a "Usage" section if passed \`pkg.name\`
+        and an appropriate \`additionalSections\` argument`,
+    function () {
         const parameters = {
             pkg: {name: 'awesome-package'},
             additionalSections: [
@@ -110,7 +215,9 @@ describe('readme-md', function () {
         expect(readme(parameters)).toEqual(fixture);
     });
 
-    it('adds an "See Also" section when passed an appropriate `additionalSections` argument using a numeric position', function () {
+    it(`adds an "See Also" section when passed an appropriate
+        \`additionalSections\` argument using a numeric position`,
+    function () {
         const parameters = {
             additionalSections: [
                 {
@@ -146,7 +253,9 @@ describe('readme-md', function () {
         expect(readme(parameters)).toEqual(fixture);
     });
 
-    it('adds an "See Also" section when passed an appropriate `additionalSections` argument using an "after" position directive', function () {
+    it(`adds an "See Also" section when passed an appropriate
+        \`additionalSections\` argument using an "after" position directive`,
+    function () {
         const parameters = {
             additionalSections: [
                 {
@@ -182,7 +291,9 @@ describe('readme-md', function () {
         expect(readme(parameters)).toEqual(fixture);
     });
 
-    it('adds an "See Also" section when passed an appropriate `additionalSections` argument using a "before" position directive', function () {
+    it(`adds an "See Also" section when passed an appropriate
+        \`additionalSections\` argument using a "before" position directive`,
+    function () {
         const parameters = {
             additionalSections: [
                 {

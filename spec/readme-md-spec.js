@@ -65,6 +65,35 @@ describe('readme-md', function () {
         expect(readme(parameters)).toEqual(fixture);
     });
 
+    it(`generates a titled README with placeholders and a global install example
+        if passed an object with \`pkg.name\` and \`pkg.preferGlobal\`
+        properties`,
+    function () {
+        const parameters = {pkg: {name: 'awesome-package', preferGlobal: true}};
+
+        const fixture = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            $ npm install --global awesome-package
+            \`\`\`
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
     it(`generates a titled README with variant placeholders if passed an object
         with \`pkg.name\` and \`config['prefer-yarn']\` properties`,
     function () {
@@ -82,6 +111,38 @@ describe('readme-md', function () {
             -------
             \`\`\`sh
             $ yarn add awesome-package # Or alternatively: \`npm install --save awesome-package\`
+            \`\`\`
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(parameters)).toEqual(fixture);
+    });
+
+    it(`generates a titled README with variant placeholders and a global install
+        if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
+        \`config['prefer-yarn']\` properties`,
+    function () {
+        const parameters = {
+            config: {'prefer-yarn': true},
+            pkg: {name: 'awesome-package', preferGlobal: true}
+        };
+
+        const fixture = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            $ yarn global add awesome-package # Or alternatively: \`npm install --global awesome-package\`
             \`\`\`
 
             Testing

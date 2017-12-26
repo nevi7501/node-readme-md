@@ -61,6 +61,10 @@ Testing
 $ yarn test # Or alternatively: `npm test`
 ```
 
+See Also
+--------
+- [readme-md-cli @ npm](https://www.npmjs.com/package/readme-md-cli)
+
 License
 -------
 The MIT License (Expat). See the [license file](LICENSE) for details.

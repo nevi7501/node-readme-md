@@ -50,7 +50,7 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ npm install --save awesome-package
+            $ npm install awesome-package
             \`\`\`
 
             Testing
@@ -110,7 +110,7 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ yarn add awesome-package # Or alternatively: \`npm install --save awesome-package\`
+            $ yarn add awesome-package # Or alternatively: \`npm install awesome-package\`
             \`\`\`
 
             Testing
@@ -175,7 +175,7 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ npm install --save awesome-package
+            $ npm install awesome-package
             \`\`\`
 
             Testing
@@ -212,7 +212,7 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ yarn add awesome-package # Or alternatively: \`npm install --save awesome-package\`
+            $ yarn add awesome-package # Or alternatively: \`npm install awesome-package\`
             \`\`\`
 
             Testing
@@ -255,7 +255,7 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ npm install --save awesome-package
+            $ npm install awesome-package
             \`\`\`
 
             Usage

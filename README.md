@@ -1,7 +1,5 @@
 readme-md
 =========
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/jbenner-radham/node-readme-md.svg)](https://greenkeeper.io/)
 [![npm Version][NPM VERSION BADGE]][NPM PAGE]
 [![Node.js][NODE VERSION BADGE]][NODE PAGE]
 [![GitHub License][LICENSE BADGE]][LICENSE PAGE]

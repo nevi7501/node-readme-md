@@ -2,7 +2,7 @@
 
 const any = jasmine.any;
 const readme = require('../');
-const {stripIndents} = require('common-tags');
+const { stripIndents } = require('common-tags');
 
 describe('readme-md', function () {
     beforeEach(function () {
@@ -40,7 +40,7 @@ describe('readme-md', function () {
     });
 
     it('generates a titled README with placeholders if passed an object with only a `pkg.name` property', function () {
-        const parameters = {pkg: {name: 'awesome-package'}};
+        const parameters = { pkg: { name: 'awesome-package' } };
 
         const fixture = stripIndents`
             awesome-package
@@ -69,7 +69,7 @@ describe('readme-md', function () {
         if passed an object with \`pkg.name\` and \`pkg.preferGlobal\`
         properties`,
     function () {
-        const parameters = {pkg: {name: 'awesome-package', preferGlobal: true}};
+        const parameters = { pkg: { name: 'awesome-package', preferGlobal: true } };
 
         const fixture = stripIndents`
             awesome-package
@@ -98,8 +98,8 @@ describe('readme-md', function () {
         with \`pkg.name\` and \`config['prefer-yarn']\` properties`,
     function () {
         const parameters = {
-            config: {'prefer-yarn': true},
-            pkg: {name: 'awesome-package'}
+            config: { 'prefer-yarn': true },
+            pkg: { name: 'awesome-package' }
         };
 
         const fixture = stripIndents`
@@ -130,8 +130,8 @@ describe('readme-md', function () {
         \`config['prefer-yarn']\` properties`,
     function () {
         const parameters = {
-            config: {'prefer-yarn': true},
-            pkg: {name: 'awesome-package', preferGlobal: true}
+            config: { 'prefer-yarn': true },
+            pkg: { name: 'awesome-package', preferGlobal: true }
         };
 
         const fixture = stripIndents`
@@ -163,7 +163,7 @@ describe('readme-md', function () {
         const parameters = {
             pkg: {
                 name: 'awesome-package',
-                scripts: {test: 'jasmine'}
+                scripts: { test: 'jasmine' }
             }
         };
 
@@ -197,10 +197,10 @@ describe('readme-md', function () {
         \`config['prefer-yarn']\` properties`,
     function () {
         const parameters = {
-            config: {'prefer-yarn': true},
+            config: { 'prefer-yarn': true },
             pkg: {
                 name: 'awesome-package',
-                scripts: {test: 'jasmine'}
+                scripts: { test: 'jasmine' }
             }
         };
 
@@ -233,18 +233,18 @@ describe('readme-md', function () {
         and an appropriate \`additionalSections\` argument`,
     function () {
         const parameters = {
-            pkg: {name: 'awesome-package'},
             additionalSections: [
                 {
-                    position: 'after:Install',
-                    title: 'Usage',
                     body: stripIndents`
                         \`\`\`js
                         require('awesome-package')('Go go go!');
                         \`\`\`
-                    `
+                    `,
+                    position: 'after:Install',
+                    title: 'Usage'
                 }
-            ]
+            ],
+            pkg: { name: 'awesome-package' }
         };
 
         const fixture = stripIndents`
@@ -282,9 +282,9 @@ describe('readme-md', function () {
         const parameters = {
             additionalSections: [
                 {
+                    body: '- [Example](http://www.example.com/)',
                     position: -1,
-                    title: 'See Also',
-                    body: '- [Example](http://www.example.com/)'
+                    title: 'See Also'
                 }
             ]
         };
@@ -320,9 +320,9 @@ describe('readme-md', function () {
         const parameters = {
             additionalSections: [
                 {
+                    body: '- [Example](http://www.example.com/)',
                     position: 'after:Testing',
-                    title: 'See Also',
-                    body: '- [Example](http://www.example.com/)'
+                    title: 'See Also'
                 }
             ]
         };
@@ -358,9 +358,9 @@ describe('readme-md', function () {
         const parameters = {
             additionalSections: [
                 {
+                    body: '- [Example](http://www.example.com/)',
                     position: 'before:License',
-                    title: 'See Also',
-                    body: '- [Example](http://www.example.com/)'
+                    title: 'See Also'
                 }
             ]
         };
@@ -391,7 +391,7 @@ describe('readme-md', function () {
     });
 
     it('documents an "MIT" software license', function () {
-        const parameters = {pkg: {license: 'MIT'}};
+        const parameters = { pkg: { license: 'MIT' } };
 
         const fixture = stripIndents`
             &lt;package-name&gt;
@@ -446,7 +446,7 @@ describe('readme-md', function () {
     });
 
     it('documents an "UNLICENSED" software license differently than a SPDX license', function () {
-        const parameters = {pkg: {license: 'UNLICENSED'}};
+        const parameters = { pkg: { license: 'UNLICENSED' } };
 
         const fixture = stripIndents`
             &lt;package-name&gt;

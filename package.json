@@ -8,7 +8,7 @@
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "trevor",
-    "pretest": "eslint {lib,spec}",
+    "pretest": "eslint . --fix",
     "test": "jasmine"
   },
   "repository": {

@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - The minimum required [Node.js](https://nodejs.org/) is now v8.
 
+### Security
+- Upgraded vulnerable dependencies.
+
 [0.8.0] - 2018-01-21
 --------------------
 ### Changed

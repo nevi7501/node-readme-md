@@ -38,7 +38,7 @@
     "jasmine": "^3.5.0",
     "lint-staged": "^9.4.2",
     "nyc": "^14.1.1",
-    "sort-package-json": "^1.22.1",
+    "sort-package-json": "^1.42.0",
     "trevor": "^2.4.0"
   },
   "engines": {
